@@ -10,4 +10,10 @@ export class User extends Document {
   password: string;
 }
 
-export const UserSchema = SchemaFactory.createForClass(User);
+export const UserSchema = SchemaFactory.createForClass(User).set('toJSON', {
+  transform: (doc, ret,) => {
+    delete ret.__v;
+    ret.id = ret._id.toString();
+    delete ret._id;
+  }
+});

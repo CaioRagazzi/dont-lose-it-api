@@ -28,4 +28,8 @@ export class CreateItemDto {
   @IsNotEmpty()
   @IsString()
   latLng: string;
+
+  @IsNotEmpty()
+  @IsString()
+  userId: string
 }

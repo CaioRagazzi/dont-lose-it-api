@@ -1,5 +1,4 @@
-import { Body, Controller, Get, Param, Post, Req, UseGuards } from '@nestjs/common';
-import { Request } from 'express';
+import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
 import { CreateItemDto } from '../dto/create-item.dto';
 import { FindOneParams } from '../dto/find-one.dto';
 import { Item } from '../schemas/item.schema';
@@ -19,7 +18,7 @@ export class ItemsController {
   }
 
   @Get()
-  async findAll(@Req() req: Request): Promise<Item[]> {    
+  async findAll(): Promise<Item[]> {    
     const items = this.itemsService.findAll();
     return items;
   }
